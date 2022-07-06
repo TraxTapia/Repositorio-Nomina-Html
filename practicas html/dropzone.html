@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+      type="text/css"
+    />
+    <title>DROPZONE</title>
+  </head>
+  <body>
+    <!-- Example of a form that Dropzone can take over -->
+    <!-- <form action="/target" class="dropzone"></form> -->
+    <form
+      action="/file-upload"
+      class="dropzone"
+      id="my-awesome-dropzone"
+    ></form>
+    <input type="file" name="file" />
+  </body>
+  <script>
+    // If you are using JavaScript/ECMAScript modules:
+    import Dropzone from "dropzone";
+
+    // If you are using CommonJS modules:
+    const { Dropzone } = require("dropzone");
+
+    // If you are using an older version than Dropzone 6.0.0,
+    // then you need to disabled the autoDiscover behaviour here:
+    Dropzone.autoDiscover = false;
+
+    let myDropzone = new Dropzone("#my-form");
+    myDropzone.on("addedfile", (file) => {
+      console.log(`File added: ${file.name}`);
+    });
+  </script>
+</html>
